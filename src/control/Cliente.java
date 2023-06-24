@@ -1,57 +1,49 @@
 package control;
 
+public class DadosCliente{
+   private String nome;
+   private String fone;
+   private String cpf;
+   private String cidade;
+   private String idade;
+   private String sexo;
+   private String fonec;
+   private String email;
+   private String cep;        
+   private String estado;
+   private String bairro;
+   private String numero;
+   private String rua;  
+
+   public DadosCliente(String nome, String fone, String cpf, String cidade, String idade, String sexo, String fonec, String email, String cep, String estado, String bairro, String numero, String rua) {
+        this.nome = nome;
+        this.fone = fone;
+        this.cpf = cpf;
+        this.cidade = cidade;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.fonec = fonec;
+        this.email = email;
+        this.cep = cep;
+        this.estado = estado;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.rua = rua;     
+    }    
+}
+
+
 
 public class Cliente {    
     public static String v[] = new String[14]; 
-    public String nome = null;
-    public String fone = null;
-    public String cpf = null;
-    public String cidade = null;
-    public String idade = null;
-    public String sexo = null;
-    public String fonec = null;
-    public String email = null;
-    public String cep = null;
-    public String estado = null;
-    public String bairro = null;
-    public String numero = null;
-    public String rua = null;
     public static String id = "0";
+    private DadosCliente dadosCliente;
     
-    public Cliente(){}
     
-    public Cliente(
+    public Cliente(DadosCliente dadosCliente){
+       this.dadosCliente = dadosCliente;
+}
     
-    String nome,
-    String fone,
-    String cpf,
-    String cidade,
-    String idade,
-    String sexo,
-    String fonec,
-    String email,
-    String cep,
-    String estado,
-    String bairro,
-    String numero,
-    String rua,        
-    String id        
-    ){
-    this.nome = nome;
-    this.fone = fone;
-    this.cpf = cpf;
-    this.cidade = cidade;
-    this.idade = idade;
-    this.sexo = sexo;
-    this.fonec = fonec;
-    this.email = email;
-    this.cep = cep;
-    this.estado = estado;
-    this.bairro = bairro;
-    this.numero = numero;
-    this.rua = rua;
-    this.id = id;
-    }
 
     public String getId() {
         return id;
