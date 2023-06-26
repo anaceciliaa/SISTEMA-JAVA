@@ -1,6 +1,6 @@
 package control;
 
-public class DadosCliente{
+class DadosCliente {
    private String nome;
    private String fone;
    private String cpf;
@@ -29,30 +29,7 @@ public class DadosCliente{
         this.bairro = bairro;
         this.numero = numero;
         this.rua = rua;     
-    }    
-}
-
-
-
-public class Cliente {    
-    public static String v[] = new String[14]; 
-    public static String id = "0";
-    private DadosCliente dadosCliente;
-    
-    
-    public Cliente(DadosCliente dadosCliente){
-       this.dadosCliente = dadosCliente;
-}
-    
-
-    public String getId() {
-        return id;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    
     
     public String getNome() {
         return nome;
@@ -157,6 +134,30 @@ public class Cliente {
     public void setRua(String rua) {
         this.rua = rua;
     }
+}
+
+public class Cliente {    
+    public static String v[] = new String[14]; 
+    public static String id = "0";
+    private DadosCliente dadosCliente;
     
+    public Cliente(DadosCliente dadosCliente){
+       this.dadosCliente = dadosCliente;
+    }
     
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public DadosCliente getDadosCliente() {
+        return dadosCliente;
+    }
+
+    public void setDadosCliente(DadosCliente dadosCliente) {
+        this.dadosCliente = dadosCliente;
+    }
 }
