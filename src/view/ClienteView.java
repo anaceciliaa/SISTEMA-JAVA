@@ -799,18 +799,24 @@ public final class ClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabelaMouseReleased
     
     public void eventTable(){
-        
-        if(BackGround != Color.ORANGE && BackGround != Color.CYAN){
+        if (BackGround != Color.ORANGE && BackGround != Color.CYAN) {
             jTabela.setSelectionBackground(BackGround);
-        }else{
+        } else {
             BackGround = jTabela.getSelectionBackground();
-        } 
-        
-            int aux = jTabela.getSelectedRow();
-            if (aux >= 0 && aux < Modelo.getRowCount()) {
-                
-                Cliente D = Modelo.getFuncionario(aux);
+        }
 
+        int aux = jTabela.getSelectedRow();
+         if (aux >= 0 && aux < Modelo.getRowCount()) {
+            Cliente cliente = Modelo.getFuncionario(aux);
+            
+            setClienteData(cliente);
+            setSelectedGender(cliente);
+            
+            modoDep = "Selecao";
+            ManipulaInterfaceDep();
+        }
+
+            private void setClienteData(Cliente cliente) {
                 jNome.setText(D.nome);
                 jCpf.setText(D.cpf);
                 jFone.setText(D.fone);
@@ -823,7 +829,9 @@ public final class ClienteView extends javax.swing.JFrame {
                 jBairro.setText(D.bairro);
                 jNumero.setText(D.numero);
                 jRua.setText(D.rua);
+            }
 
+            private void setSelectedGender(Cliente cliente) {
                final String MASCULINO = "Masculino";
                final String FEMININO = "Feminino";
                
@@ -831,12 +839,8 @@ public final class ClienteView extends javax.swing.JFrame {
                 jrMasculino.setSelected(true);
                } else if (FEMININO.equals(D.sexo)) {
                 jrFeminino.setSelected(true);
+               }
             }
-
-                modoDep = "Selecao";
-                ManipulaInterfaceDep();
-            }
-
     }
     /**
      * @param args the command line arguments
