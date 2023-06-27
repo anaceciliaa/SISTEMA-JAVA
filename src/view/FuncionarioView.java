@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.Cliente;
 import control.Funcionario;
 import model.FuncionarioWrite;
 import dao.FuncionarioDAO;
@@ -779,7 +780,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         }
     }
         
-            public void eventTable(){
+    public void eventTable(){
         
         if(BackGround != Color.ORANGE && BackGround != Color.CYAN){
             jTabela.setSelectionBackground(BackGround);
@@ -804,17 +805,20 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jDepartamento.setText(D.departamento);
                 jFuncao.setText(D.funcao);
                 jObservacao.setText(D.observacao);
+
+            private void setSelectedGender(Cliente cliente) {
+                final String MASCULINO = "Masculino";
+                final String FEMININO = "Feminino";
                 
-                    if ("Masculino".equals(D.sexo)) {
-                        jrMasculino.setSelected(true);
-                    } else if ("Feminino".equals(D.sexo)) {
-                        jrFeminino.setSelected(true);
-                    }
-                
+                if ("Masculino".equals(D.sexo)) {
+                    jrMasculino.setSelected(true);
+                } else if ("Feminino".equals(D.sexo)) {
+                    jrFeminino.setSelected(true);
+                }     
+            }
+            
                 modoDep = "Selecao";
                 ManipulaInterfaceDep();
-            }
-
     }
     
     /**
