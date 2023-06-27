@@ -9,39 +9,35 @@ import static view.ProdutosView.Modelo;
 public class ProdutoWrite {
 
     public static ArrayList<Produto> produtos = new ArrayList<>();
-    public static Produto itens = new Produto();
+    public static Produto itens = new Produto(null);
 
     public static void salvar() {
+        atualizarDadosProduto();
+        atualizarModelo();
+    }    
 
-        ProdutoWrite.produtos.get(ProdutosView.index).nome = Produto.v[0];
-        ProdutoWrite.produtos.get(ProdutosView.index).codigo_produto = Produto.v[1];
-        ProdutoWrite.produtos.get(ProdutosView.index).valor_da_compra = Produto.v[2];
-        ProdutoWrite.produtos.get(ProdutosView.index).marca = Produto.v[3];
-        ProdutoWrite.produtos.get(ProdutosView.index).data_da_compra = Produto.v[4];
-        ProdutoWrite.produtos.get(ProdutosView.index).valor_da_venda = Produto.v[5];
-        ProdutoWrite.produtos.get(ProdutosView.index).categoria = Produto.v[6];
-        ProdutoWrite.produtos.get(ProdutosView.index).descricao = Produto.v[7];
-        ProdutoWrite.produtos.get(ProdutosView.index).fornecedor = Produto.v[8];
-        ProdutoWrite.produtos.get(ProdutosView.index).prateleira = Produto.v[9];
-        ProdutoWrite.produtos.get(ProdutosView.index).quant = Produto.v[10];
+    public static void atualizarDadosProduto() {
+        Produto produto = ProdutoWrite.produtos.get(ProdutosView.index);
+        String[] dadosProduto = Produto.v;
 
-        Produto.id = ProdutoWrite.produtos.get(ProdutosView.index).codigo_produto;
+        produto.getDadosProduto().setNome(dadosProduto[0]);
+        produto.getDadosProduto().setCodigo_produto(dadosProduto[1]);
+        produto.getDadosProduto().setValor_da_compra(dadosProduto[2]);
+        produto.getDadosProduto().setMarca(dadosProduto[3]);
+        produto.getDadosProduto().setData_da_compra(dadosProduto[4]);
+        produto.getDadosProduto().setValor_da_venda(dadosProduto[5]);
+        produto.getDadosProduto().setCategoria(dadosProduto[6]);
+        produto.getDadosProduto().setDescricao(dadosProduto[7]);
+        produto.getDadosProduto().setFornecedor(dadosProduto[8]);
+        produto.getDadosProduto().setPrateleira(dadosProduto[9]);
+        produto.getDadosProduto().setQuant(dadosProduto[10]);
 
-        itens.setNome(Produto.v[0]);
-        itens.setCodigo_produto(Produto.v[1]);
-        itens.setValor_da_compra(Produto.v[2]);
-        itens.setMarca(Produto.v[3]);
-        itens.setData_da_compra(Produto.v[4]);
-        itens.setValor_da_venda(Produto.v[5]);
-        itens.setCategoria(Produto.v[6]);
-        itens.setDescricao(Produto.v[7]);
-        itens.setFornecedor(Produto.v[8]);
-        itens.setPrateleira(Produto.v[9]);
-        itens.setQuant(Produto.v[10]);
-
-        ProdutoWrite.produtos.set(ProdutosView.index, itens);
-        Modelo.setValueAt(itens, ProdutosView.index);
+        Produto.id = produto.getDadosProduto().getCodigo_produto();
 
     }
 
+    private static void atualizarModelo() {
+        Produto produto = ProdutoWrite.produtos.get(ProdutosView.index);
+        Modelo.setValueAt(produto, ProdutosView.index);
+    }
 }
