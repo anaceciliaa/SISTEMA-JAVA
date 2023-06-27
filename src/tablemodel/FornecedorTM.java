@@ -137,18 +137,9 @@ public class FornecedorTM extends AbstractTableModel{
         f.setCidade(aValue.getCidade());
         f.setRua(aValue.getRua());
         
-        fireTableCellUpdated(rowIndex, 0);
-        fireTableCellUpdated(rowIndex, 1);
-        fireTableCellUpdated(rowIndex, 2);
-        fireTableCellUpdated(rowIndex, 3);
-        fireTableCellUpdated(rowIndex, 4);
-        fireTableCellUpdated(rowIndex, 5);
-        fireTableCellUpdated(rowIndex, 6);
-        fireTableCellUpdated(rowIndex, 7);
-        fireTableCellUpdated(rowIndex, 8);
-        fireTableCellUpdated(rowIndex, 9);
-        fireTableCellUpdated(rowIndex, 10);
-        fireTableCellUpdated(rowIndex, 11);
+        for (int columnIndex = 0; columnIndex < colunas.length; columnIndex++) {
+            fireTableCellUpdated(rowIndex, columnIndex);
+        }
     }
   
     @Override
