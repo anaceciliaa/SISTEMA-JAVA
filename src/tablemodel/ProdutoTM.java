@@ -116,15 +116,9 @@ public class ProdutoTM extends AbstractTableModel{
         f.setPrateleira(aValue.getPrateleira());
         f.setQuant(aValue.getQuant());
         
-        fireTableCellUpdated(rowIndex, 0);
-        fireTableCellUpdated(rowIndex, 1);
-        fireTableCellUpdated(rowIndex, 2);
-        fireTableCellUpdated(rowIndex, 3);
-        fireTableCellUpdated(rowIndex, 4);
-        fireTableCellUpdated(rowIndex, 5);
-        fireTableCellUpdated(rowIndex, 6);
-        fireTableCellUpdated(rowIndex, 7);
-        fireTableCellUpdated(rowIndex, 8);
+        for (int columnIndex = 0; columnIndex < colunas.length; columnIndex++) {
+            fireTableCellUpdated(rowIndex, columnIndex);
+        }
     }
   
     @Override
