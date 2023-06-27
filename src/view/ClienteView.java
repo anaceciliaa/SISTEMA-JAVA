@@ -823,13 +823,16 @@ public final class ClienteView extends javax.swing.JFrame {
                 jBairro.setText(D.bairro);
                 jNumero.setText(D.numero);
                 jRua.setText(D.rua);
-                
-                    if ("Masculino".equals(D.sexo)) {
-                        jrMasculino.setSelected(true);
-                    } else if ("Feminino".equals(D.sexo)) {
-                        jrFeminino.setSelected(true);
-                    }
-                
+
+               final String MASCULINO = "Masculino";
+               final String FEMININO = "Feminino";
+               
+               if (MASCULINO.equals(D.sexo)) {
+                jrMasculino.setSelected(true);
+               } else if (FEMININO.equals(D.sexo)) {
+                jrFeminino.setSelected(true);
+            }
+
                 modoDep = "Selecao";
                 ManipulaInterfaceDep();
             }
