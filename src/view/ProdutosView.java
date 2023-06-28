@@ -1024,33 +1024,34 @@ public class ProdutosView extends javax.swing.JFrame {
     }
         
         public void eventTable(){
-        
-        if(BackGround != Color.ORANGE && BackGround != Color.CYAN){
-            jTabela.setSelectionBackground(BackGround);
-        }else{
-            BackGround = jTabela.getSelectionBackground();
-        } 
-        
-            int aux = jTabela.getSelectedRow();
-            if (aux >= 0 && aux < Modelo.getRowCount()) {
-                
-                Produto D = Modelo.getFuncionario(aux);
+            final Color ORANGE_COLOR = Color.ORANGE;
+            final Color CYAN_COLOR = Color.CYAN;
+            
+            if (BackGround != ORANGE_COLOR && BackGround != CYAN_COLOR) {
+                jTabela.setSelectionBackground(BackGround);
+            } else {
+                BackGround = jTabela.getSelectionBackground();
+            } 
+    
+           int aux = jTabela.getSelectedRow();
+           if (aux >= 0 && aux < Modelo.getRowCount()) {
+             Produto produto = Modelo.getFuncionario(aux);
 
-                jNome.setText(D.nome);
-                jCodigoProduto.setText(D.codigo_produto);
-                jValorCompra.setText(D.valor_da_compra);
-                jMarca.setText(D.marca);
-                jData.setText(D.data_da_compra);
-                jValorVenda.setText(D.valor_da_venda);
-                jCategoria.setText(D.categoria);
-                jDescricao.setText(D.descricao);
-                jcFornecedor.setText(D.fornecedor);
-                jPrateleira.setText(D.prateleira);
-                jQuantidade.setText(D.quant);
-                
-                modoDep = "Selecao";
-                ManipulaInterfaceDep();
-            }
+            jNome.setText(produto.nome);
+            jCodigoProduto.setText(produto.codigo_produto);
+            jValorCompra.setText(produto.valor_da_compra);
+            jMarca.setText(produto.marca);
+            jData.setText(produto.data_da_compra);
+            jValorVenda.setText(produto.valor_da_venda);
+            jCategoria.setText(produto.categoria);
+            jDescricao.setText(produto.descricao);
+            jcFornecedor.setText(produto.fornecedor);
+            jPrateleira.setText(produto.prateleira);
+            jQuantidade.setText(produto.quant);
+    
+            modoDep = "Selecao";
+            ManipulaInterfaceDep();
+        }
 
     }        
     // Variables declaration - do not modify//GEN-BEGIN:variables
