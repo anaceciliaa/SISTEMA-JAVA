@@ -781,18 +781,25 @@ public class FuncionarioView extends javax.swing.JFrame {
     }
         
     public void eventTable(){
-        
-        if(BackGround != Color.ORANGE && BackGround != Color.CYAN){
+        isAlwaysOnTopSupportedf (BackGround != Color.ORANGE && BackGround != Color.CYAN) {
             jTabela.setSelectionBackground(BackGround);
-        }else{
+        } else {
             BackGround = jTabela.getSelectionBackground();
-        } 
-        
-            int aux = jTabela.getSelectedRow();
-            if (aux >= 0 && aux < Modelo.getRowCount()) {
-                
-                Funcionario D = Modelo.getFuncionario(aux);
+        }
 
+        int aux = jTabela.getSelectedRow();
+        if (aux >= 0 && aux < Modelo.getRowCount()) {
+            Funcionario funcionario = Modelo.getFuncionario(aux);
+
+            setFuncionarioData(funcionario);
+            setSelectedGender(funcionario);
+
+            modoDep = "Selecao";
+            ManipulaInterfaceDep();
+        }
+    }
+
+            private void setFuncionarioData(Funcionario funcionario) {
                 jNome.setText(D.nome);
                 jCpf.setText(D.cpf);
                 jEmail.setText(D.email);
@@ -805,6 +812,7 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jDepartamento.setText(D.departamento);
                 jFuncao.setText(D.funcao);
                 jObservacao.setText(D.observacao);
+            }
 
             private void setSelectedGender(Cliente cliente) {
                 final String MASCULINO = "Masculino";
@@ -816,10 +824,6 @@ public class FuncionarioView extends javax.swing.JFrame {
                     jrFeminino.setSelected(true);
                 }     
             }
-            
-                modoDep = "Selecao";
-                ManipulaInterfaceDep();
-    }
     
     /**
      * @param args the command line arguments
