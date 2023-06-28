@@ -1035,7 +1035,7 @@ public class ProdutosView extends javax.swing.JFrame {
     
            int aux = jTabela.getSelectedRow();
            if (aux >= 0 && aux < Modelo.getRowCount()) {
-             Produto produto = Modelo.getFuncionario(aux);
+             Produto produto = Modelo.getProduto(aux);
 
             jNome.setText(produto.nome);
             jCodigoProduto.setText(produto.codigo_produto);
@@ -1051,6 +1051,14 @@ public class ProdutosView extends javax.swing.JFrame {
     
             modoDep = "Selecao";
             ManipulaInterfaceDep();
+        }
+        
+        private boolean isValidRow(int row) {
+            return row >= 0 && row < Modelo.getRowCount();
+        }
+
+        private void setFieldValue(JTextField field, String value) {
+            field.setText(value);
         }
 
     }        
